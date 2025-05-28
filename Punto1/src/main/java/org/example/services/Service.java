@@ -1,11 +1,7 @@
 package org.example.services;
 
-/*
- * This class contains a serviceMethod(), and should return
- * user info, based on a sql syntax.
- * */
 
-import org.example.otherClasses.Employee;
+import org.example.utilities.Employee;
 
 import java.sql.*;
 
@@ -21,11 +17,10 @@ public class Service {
     Statement statement = null;
     ResultSet resultSet = null;
 
-    public Employee serviceMethod(Long userId) throws Exception {
+    public Employee getUserByIdService(Long userId) throws Exception {
 
         try {
             Class.forName(JDBC_DRIVER);
-            System.out.println("JDBC Driver loaded.");
 
             System.out.println("Connecting to database...");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -34,7 +29,7 @@ public class Service {
             statement = connection.createStatement();
 
             String sql = "SELECT * FROM Employee WHERE id = " + userId;
-            System.out.println("Executing query: " + sql);
+
             resultSet = statement.executeQuery(sql);
 
             int columnCount = resultSet.getMetaData().getColumnCount();
@@ -52,11 +47,6 @@ public class Service {
                     }
                 }
             }
-
-            System.out.println("User Found!");
-            System.out.println("User Id: " + employee.getId());
-            System.out.println("User Name: " + employee.getName());
-            System.out.println("User Salary: " + employee.getSalary());
 
             connection.close();
             return employee;

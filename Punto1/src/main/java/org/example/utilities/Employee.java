@@ -1,4 +1,4 @@
-package org.example.otherClasses;
+package org.example.utilities;
 
 public class Employee {
 
