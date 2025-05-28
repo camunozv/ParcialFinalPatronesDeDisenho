@@ -19,31 +19,32 @@ import implementacion.InterfaceMensajeEncriptacion;
 public class PatronBridgeMain {
 
     public static void main(String[] args) {
-        InterfaceMensajeEncriptacion FormatoAES = new PuenteMensajeEncriptacion(new ProcesoEncriptarAES());
-        InterfaceMensajeEncriptacion FormatoDES = new PuenteMensajeEncriptacion(new ProcesoEncriptarDES());
-        InterfaceMensajeEncriptacion SinFormato = new PuenteMensajeEncriptacion(new ProcesoSinEncriptar());
-        InterfaceMensajeEncriptacion FormatoOther = new PuenteMensajeEncriptacion(new ProcesoEncriptarOther());
+
+        InterfaceMensajeEncriptacion formatoLeido = new PuenteMensajeEncriptacion();
 
         try {
             final String message = "<Curso><Nombre>Patrones de Diseño de Software</Nombre></Curso>";
 
-            String messageAES = FormatoAES.EncryptarMensaje(message, "HG58YZ3CR9123456");
-            System.out.println("Formato AES > " + messageAES + "\n");
+            String messageEncrypted = formatoLeido.EncryptarMensaje(message, "HG58YZ3CR9123456");
+            System.out.println("Formato Leido > " + messageEncrypted + "\n");
 
-            String messageDES = FormatoDES.EncryptarMensaje(message, "XMzDdG4D03CKm2Ix");
-            System.out.println("Formato DES > " + messageDES + "\n");
+//            String messageAES = formatoLeido.EncryptarMensaje(message, "HG58YZ3CR9123456");
+//            System.out.println("Formato AES > " + messageAES + "\n");
+//
+//            String messageDES = formatoLeido.EncryptarMensaje(message, "XMzDdG4D03CKm2Ix");
+//            System.out.println("Formato DES > " + messageDES + "\n");
+//
+//            String messageNO = formatoLeido.EncryptarMensaje(message, null);
+//            System.out.println("Sin Formato > " + messageNO + "\n");
+//
+//            String messageOther = formatoLeido.EncryptarMensaje(message, "XMzDdG4D03CKm2Ix");
+//            System.out.println("Formato Other > " + messageOther + "\n");
 
-            String messageNO = SinFormato.EncryptarMensaje(message, null);
-            System.out.println("Sin Formato > " + messageNO + "\n");
-
-            String messageOther = FormatoOther.EncryptarMensaje(message, "XMzDdG4D03CKm2Ix");
-            System.out.println("Formato Other > " + messageOther + "\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-
     }
 
+// aqLxbNOOuHKYdGeqjJ3wHZ/POi9nITVtlt7jkqMJez2J4jRyJW87e3OLaGAYnXgIIvwlF5y08mPcaaCgNYldsg
 }
