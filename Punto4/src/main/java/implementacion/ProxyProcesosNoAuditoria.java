@@ -1,18 +1,8 @@
-/*
- * Asignatura: Patrones de Diseño de Software
- * Patrón Estructural - > Proxy
- * Tipo de Clase: Java
- */
 package implementacion;
-import servicios.Auditoria;
-import servicios.Seguridad;
+
 import servicios.SeguridadBD;
 
-/**
- *
- * @author Fabrizio Bolaño
- */
-public class ProxyProcesos implements InterfaceProcesos {
+public class ProxyProcesosNoAuditoria implements InterfaceProcesos{
 
     @Override
     public void EjecutarProcesos(int IdProceso, String Usuario, String Password) throws Exception {
@@ -23,11 +13,11 @@ public class ProxyProcesos implements InterfaceProcesos {
                     +"' no tiene privilegios para ejecutar el proceso");
         }
 
-        ProcesoDefecto ejecutorProcess = new ProcesoDefecto();
+        ProcesoNoAuditoria ejecutorProcess = new ProcesoNoAuditoria();
         ejecutorProcess.EjecutarProcesos(IdProceso, Usuario, Password);
 
-        Auditoria audit = new Auditoria();
-        audit.AuditoriaServicioUsado(Usuario, ProcesoDefecto.class.getName());
-    }
+        // No debe haber auditoría aqui.
+        System.out.println("Proceso Ejecutado sin auditoria");
 
+    }
 }

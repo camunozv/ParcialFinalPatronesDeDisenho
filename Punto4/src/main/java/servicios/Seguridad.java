@@ -9,6 +9,8 @@ package servicios;
  *
  * @author Fabrizio Bolaño
  */
+
+// Modificar para que se autentique contra base de datos.
 public class Seguridad {
     public boolean Autorizacion(String user,String password){
         if(user.equals("fbolano") && password.equals("pds")){

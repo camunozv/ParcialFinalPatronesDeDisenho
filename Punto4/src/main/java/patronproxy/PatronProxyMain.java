@@ -5,10 +5,11 @@
  */
 
 package patronproxy;
+
 import implementacion.InterfaceProcesos;
 import implementacion.FabricaServicios;
+
 /**
- *
  * @author Fabrizio Bolaño
  */
 public class PatronProxyMain {
@@ -18,10 +19,10 @@ public class PatronProxyMain {
      */
     public static void main(String[] args) {
 
-        String usuario = "fbolano";
-        String password = "8877";
+        String usuario = "fbolanol";
+        String password = "pds";
         int proceso = 1;
-        InterfaceProcesos ProcesoActivo = FabricaServicios.CrearEjecucionProceso();
+        InterfaceProcesos ProcesoActivo = FabricaServicios.CrearEjecucionProceso("No auditable");
         try {
             ProcesoActivo.EjecutarProcesos(proceso, usuario, password);
         } catch (Exception e) {
