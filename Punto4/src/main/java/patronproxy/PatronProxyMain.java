@@ -24,7 +24,7 @@ public class PatronProxyMain {
         String usuario = "fbolanol";
         String password = "pds";
         int proceso = 1;
-        InterfaceProcesos ProcesoActivo = FabricaServicios.CrearEjecucionProceso("Auditable");
+        InterfaceProcesos ProcesoActivo = FabricaServicios.CrearEjecucionProceso("No auditable");
 
         int menu;
 

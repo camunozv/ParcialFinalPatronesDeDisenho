@@ -14,7 +14,7 @@ import servicios.SeguridadBD;
  */
 public class ProxyProcesos implements InterfaceProcesos {
 
-    private int numeroEjecucionesDiarias = 0;
+    private int numeroEjecucionesDiarias = 1;
 
     @Override
     public void EjecutarProcesos(int IdProceso, String Usuario, String Password) throws Exception {

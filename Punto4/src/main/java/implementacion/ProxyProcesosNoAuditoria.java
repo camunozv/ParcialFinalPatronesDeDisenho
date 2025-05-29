@@ -4,7 +4,7 @@ import servicios.SeguridadBD;
 
 public class ProxyProcesosNoAuditoria implements InterfaceProcesos{
 
-    private int numeroEjecucionesDiarias = 0;
+    private int numeroEjecucionesDiarias = 1;
 
     @Override
     public void EjecutarProcesos(int IdProceso, String Usuario, String Password) throws Exception {
@@ -26,6 +26,7 @@ public class ProxyProcesosNoAuditoria implements InterfaceProcesos{
 
         // No debe haber auditoría aqui.
         System.out.println("Proceso Ejecutado sin auditoria");
+        System.out.println();
 
     }
 }
