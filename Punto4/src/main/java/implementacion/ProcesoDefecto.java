@@ -15,6 +15,7 @@ public class ProcesoDefecto implements InterfaceProcesos {
     public void EjecutarProcesos(int IdProceso, String Usuario, String Password) throws Exception {
         System.out.println("proceso " + IdProceso + " en acciòn");
         System.out.println("proceso " + IdProceso + " finalizado");
+        System.out.println();
     }
 
 }

@@ -4,6 +4,8 @@ import servicios.SeguridadBD;
 
 public class ProxyProcesosNoAuditoria implements InterfaceProcesos{
 
+    private int numeroEjecucionesDiarias = 0;
+
     @Override
     public void EjecutarProcesos(int IdProceso, String Usuario, String Password) throws Exception {
         SeguridadBD securityService = new SeguridadBD();
@@ -12,6 +14,12 @@ public class ProxyProcesosNoAuditoria implements InterfaceProcesos{
             throw new Exception("El usuario '"+Usuario
                     +"' no tiene privilegios para ejecutar el proceso");
         }
+
+        if (numeroEjecucionesDiarias > 3) {
+            throw new Exception("El proceso no puede ejecutarse más de 3 veces al día");
+        }
+
+        numeroEjecucionesDiarias++;
 
         ProcesoNoAuditoria ejecutorProcess = new ProcesoNoAuditoria();
         ejecutorProcess.EjecutarProcesos(IdProceso, Usuario, Password);
